@@ -1,5 +1,5 @@
 """
-CP1404/CP5632 - Practical
+CP1404/CP5632 - Password Checker
 Password checker "skeleton" code to help you get started
 """
 
