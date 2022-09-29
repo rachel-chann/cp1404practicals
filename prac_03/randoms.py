@@ -1,5 +1,5 @@
 """
-CP1404/CP5632 - Random Numbers
+CP1404/CP5632 - Random Numbers Program
 """
 # What did you see on line 1?
 # What was the smallest number you could have seen, what was the largest?
