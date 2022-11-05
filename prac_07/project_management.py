@@ -6,6 +6,7 @@ Actual:
 """
 import datetime
 from prac_07.project import Project
+from operator import attrgetter
 
 MENU = '- (L)oad projects\n- (S)ave projects\n- (D)isplay projects' \
        '\n- (F)ilter projects by date\n- (A)dd new project\n- (U)date project\n- (Q)uit'
@@ -81,7 +82,11 @@ def add_project(projects):
 
 def filter_projects(projects):
     """Filter and sort projects by the date."""
-    pass
+    start_date = get_date('Show projects that start after date (dd/mm/yy): ')
+    requested_projects = [project for project in projects if project.start_date >= start_date]
+    requested_projects.sort(key=attrgetter('start_date'))
+    for project in requested_projects:
+        print(project)
 
 
 def update_project(projects):
