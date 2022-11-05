@@ -4,6 +4,9 @@ Project Management Program
 Estimate: 200 minutes
 Actual:
 """
+import datetime
+from prac_07.project import Project
+
 MENU = '- (L)oad projects\n- (S)ave projects\n- (D)isplay projects' \
        '\n- (F)ilter projects by date\n- (A)dd new project\n- (U)date project\n- (Q)uit'
 FILENAME = 'projects.txt'
@@ -39,7 +42,15 @@ def main():
 
 def load_projects(filename):
     """Load projects from tab-delimited text file."""
-    pass
+    projects = []
+    with open(filename) as in_file:
+        in_file.readline()
+        for line in in_file:
+            parts = line.strip().split('\t')
+            start_date = datetime.datetime.strptime(parts[1], '%d/%m/%Y').date()
+            project = Project(parts[0], start_date, int(parts[2]), float(parts[3]), int(parts[4]),)
+            projects.append(project)
+    return projects
 
 
 def display_projects(projects):
