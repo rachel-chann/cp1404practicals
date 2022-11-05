@@ -69,7 +69,14 @@ def display_projects(projects):
 
 def add_project(projects):
     """Add new project object to the list."""
-    pass
+    print("Let's add a new project")
+    name = input('Name: ')
+    start_date = get_date('Start date (dd/mm/yy): ')
+    priority = int(input('Priority: '))
+    cost_estimate = float(input('Cost estimate: $'))
+    percentage_complete = int(input('Percent complete: '))
+    new_project = Project(name, start_date, priority, cost_estimate, percentage_complete)
+    projects.append(new_project)
 
 
 def filter_projects(projects):
@@ -85,6 +92,13 @@ def update_project(projects):
 def save_projects(projects, filename):
     """Save projects to tab-delimited text file."""
     pass
+
+
+def get_date(prompt):
+    """Get the date object from the input date string."""
+    date = input(prompt)
+    date = datetime.datetime.strptime(date, '%d/%m/%Y').date()
+    return date
 
 
 main()
