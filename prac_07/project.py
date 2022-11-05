@@ -2,7 +2,7 @@
 CP1404/CP5632 Practical
 Project Management Program
 Estimate: 200 minutes
-Actual:
+Actual:   190 minutes
 """
 
 

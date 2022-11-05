@@ -2,7 +2,7 @@
 CP1404/CP5632 Practical
 Project Management Program
 Estimate: 200 minutes
-Actual:
+Actual:   190 minutes
 """
 import datetime
 from prac_07.project import Project
@@ -11,6 +11,7 @@ from operator import attrgetter
 MENU = '- (L)oad projects\n- (S)ave projects\n- (D)isplay projects' \
        '\n- (F)ilter projects by date\n- (A)dd new project\n- (U)date project\n- (Q)uit'
 FILENAME = 'projects.txt'
+HEADER = 'Name	Start Date	Priority	Cost Estimate	Completion Percentage'
 
 
 def main():
@@ -110,7 +111,10 @@ def update_project(projects):
 
 def save_projects(projects, filename):
     """Save projects to tab-delimited text file."""
-    pass
+    with open(filename, 'w') as out_file:
+        print(HEADER, file=out_file)
+        for project in projects:
+            print(f'{project.name}\t{project.start_date.strftime("%d/%m/%Y")}\t{project.priority}\t{project.cost_estimate}\t{project.percentage_complete}', file=out_file)
 
 
 def get_date(prompt):
