@@ -91,7 +91,21 @@ def filter_projects(projects):
 
 def update_project(projects):
     """Get project choice and update based on user input values."""
-    pass
+    for i, project in enumerate(projects):
+        print(i, project)
+    index = int(input('Project choice: '))
+    project = projects[index]
+    print(project)
+    try:
+        percentage_complete = int(input('New Percentage: '))
+        project.percentage_complete = percentage_complete
+    except ValueError:
+        pass
+    try:
+        priority = int(input('New Priority: '))
+        project.priority = priority
+    except ValueError:
+        pass
 
 
 def save_projects(projects, filename):
