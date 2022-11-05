@@ -55,7 +55,16 @@ def load_projects(filename):
 
 def display_projects(projects):
     """Display in two groups: incomplete projects; complete projects, both sorted by priority."""
-    pass
+    print('Incomplete projects: ')
+    incomplete_projects = [project for project in projects if not project.is_completed()]
+    incomplete_projects.sort()
+    for project in incomplete_projects:
+        print(' ', project)
+    print('Completed projects: ')
+    complete_projects = [project for project in projects if project.is_completed()]
+    complete_projects.sort()
+    for project in complete_projects:
+        print(' ', project)
 
 
 def add_project(projects):
